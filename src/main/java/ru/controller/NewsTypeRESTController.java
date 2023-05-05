@@ -36,7 +36,10 @@ public class NewsTypeRESTController {
     @GetMapping("/getOneType/{typeName}")
     public ResponseEntity<newsTypeDTO> findOneNewsType(@PathVariable("typeName") String typeName){
         newsTypeDTO typeDTO = service.findNewsType(typeName);
-        return new ResponseEntity<>(typeDTO, HttpStatus.OK);
+        if (typeDTO != null) {
+            return new ResponseEntity<>(typeDTO, HttpStatus.OK);
+        }
+        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
     @RequestMapping(value = "/deleteNewsType/{typeName}", method = RequestMethod.DELETE)

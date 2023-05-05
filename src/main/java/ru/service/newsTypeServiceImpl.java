@@ -33,7 +33,11 @@ public class newsTypeServiceImpl implements newsTypeService {
 
     @Override
     public newsTypeDTO findNewsType(String typeName) {
-       return new newsTypeDTO(newsTypeRepo.findnewsTypeByTypeName(typeName));
+        newsType newsType = newsTypeRepo.findnewsTypeByTypeName(typeName);
+        if (newsType != null) {
+            return new newsTypeDTO(newsType);
+        }
+       return null;
     }
 
     @Override
