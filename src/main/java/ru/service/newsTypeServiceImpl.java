@@ -1,7 +1,6 @@
 package ru.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 import ru.model.newsType;
 import ru.model.newsTypeDTO;

@@ -8,8 +8,6 @@ import org.springframework.web.bind.annotation.*;
 import ru.model.news;
 import ru.model.newsDTO;
 import ru.model.newsType;
-/*import ru.service.MainService;*/
-import ru.repository.newsTypeRepo;
 import ru.service.newsService;
 import ru.service.newsTypeService;
 

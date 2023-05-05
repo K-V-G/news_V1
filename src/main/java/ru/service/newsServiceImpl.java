@@ -4,7 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ru.model.news;
 import ru.model.newsDTO;
-import ru.model.newsType;
 import ru.repository.newsRepoImpl;
 import ru.repository.newsTypeRepo;
 
