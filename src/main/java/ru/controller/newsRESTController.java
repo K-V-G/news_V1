@@ -78,7 +78,12 @@ public class newsRESTController {
     public ResponseEntity<List<newsDTO>> getAllNewsByType(@PathVariable("typeNews") String typeNews) {
         try {
             List<newsDTO> newsDTOList = newsService.getAllNewsByType(typeNews);
-            return new ResponseEntity<>(newsDTOList, HttpStatus.OK);
+            if (newsDTOList.size() != 0) {
+                return new ResponseEntity<>(newsDTOList, HttpStatus.OK);
+            }
+            else {
+                return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            }
         } catch (NoSuchElementException e) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
