@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+  <meta charset="UTF-8">
+  <title>Show News Type</title>
+</head>
+<body>
+<p th:text="${'Id: ' + newsType.getId() + ', ' + 'название типа новости: ' +
+newsType.getTypeName()}">VALUE</p>
+<p th:text="${'цвет новости: ' + newsType.getColorType()}">VALUE</p>
+<br>
+<form th:method="GET" th:action="@{/showAllNewsType}">
+  <input type="submit" value="Go back"/>
+</form>
+</body>
+</html>

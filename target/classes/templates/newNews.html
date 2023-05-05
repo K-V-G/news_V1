@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>New news</title>
+  <style>
+    body{
+      margin: 20px;
+      border: 4px dashed black;
+      padding: 10px;
+    }
+  </style>
+</head>
+<body style="margin: 20px; border: 4px dashed black;">
+
+<form th:method="POST" th:action="@{/mainPage}" th:object="${news}">
+  <label for="name">Введите название новости: </label>
+  <input type="text" th:field="*{name}" id="name"/>
+  <div style="color:red" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name Error</div>
+  <br/><br>
+  <label for="shortDescription">Введите краткое описание: </label>
+  <input type="text" th:field="*{shortDescription}" id="shortDescription"/>
+  <div style="color:red" th:if="${#fields.hasErrors('shortDescription')}" th:errors="*{shortDescription}">shortDescription Error</div>
+  <br/><br>
+  <label for="fullDescription">Введите полное описание: </label>
+  <input type="text" th:field="*{fullDescription}" id="fullDescription"/>
+  <div style="color:red" th:if="${#fields.hasErrors('fullDescription')}" th:errors="*{fullDescription}">fullDescription Error</div>
+  <br/><br>
+  <label for="type">Enter amount of drink: </label>
+  <br>
+  <select class="form-control" id="type"  th:field="*{type}">
+    <option value="0">Выберете тип новости: </option>
+    <option th:each="typeNews : ${newsTypeList}" th:value="${typeNews.getTypeName()}" th:text="${typeNews.getTypeName()}"></option>
+  </select>
+  <br/><br>
+  <input type="submit" value="Create!"/>
+</form>
+<br />
+<form th:method="GET" th:action="@{/mainPage}">
+  <input type="submit" value="Go back"/>
+</form>
+</body>
+</html>
